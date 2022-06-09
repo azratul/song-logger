@@ -1,0 +1,10 @@
+[Unit]
+Description=Small app to record songs from Icecast stream
+[Service]
+Environment="LASTSONG=.lastsong"
+Environment="LOGS_FILENAME=somefile.ext"
+Environment="LOGS_MIMETYPE=text/plain"
+Environment="GDRIVE_CLIENTEMAIL="
+Environment="GDRIVE_PRIVATEKEY="
+Environment="GDRIVE_PARENTS="
+ExecStart=/usr/local/bin/song-logger -write

@@ -1,0 +1,8 @@
+[Unit]
+Description=Small app to record songs from Icecast stream
+[Timer]
+OnBootSec=10
+OnUnitActiveSec=20
+AccuracySec=1ms
+[Install]
+WantedBy=timers.target
