@@ -3,8 +3,9 @@ package config
 var Conf Config
 
 type Config struct {
-	LastSong string `json:"lastsong"`
-	GDrive   struct {
+	LastSong   string `json:"lastsong"`
+	IcecastURL string `json:"icecast_url"`
+	GDrive     struct {
 		ClientEmail string   `json:"client_email"`
 		PrivateKey  string   `json:"private_key"`
 		Parents     []string `json:"parents"`

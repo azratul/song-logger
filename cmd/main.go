@@ -12,6 +12,7 @@ import (
 
 func main() {
 	if os.Getenv("LASTSONG") == "" ||
+		os.Getenv("ICECAST_URL") == "" ||
 		os.Getenv("LOGS_FILENAME") == "" ||
 		os.Getenv("LOGS_MIMETYPE") == "" ||
 		os.Getenv("GDRIVE_PARENTS") == "" ||
@@ -22,6 +23,7 @@ func main() {
 	}
 
 	config.Conf.LastSong = os.Getenv("LASTSONG")
+	config.Conf.IcecastURL = os.Getenv("ICECAST_URL")
 	config.Conf.Logs.Filename = os.Getenv("LOGS_FILENAME")
 	config.Conf.Logs.MimeType = os.Getenv("LOGS_MIMETYPE")
 	config.Conf.GDrive.ClientEmail = os.Getenv("GDRIVE_CLIENTEMAIL")

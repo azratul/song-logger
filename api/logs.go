@@ -16,7 +16,7 @@ import (
 )
 
 func WriteLog() {
-	res, err := http.Get("http://192.168.100.30:7000/status-json.xsl")
+	res, err := http.Get(config.Conf.IcecastURL)
 	if err != nil {
 		log.Error(err)
 	}
