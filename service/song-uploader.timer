@@ -1,0 +1,8 @@
+[Unit]
+Description=Small app to record songs from Icecast stream
+[Timer]
+OnCalendar=daily
+AccuracySec=1ms
+Persistent=true
+[Install]
+WantedBy=timers.target
