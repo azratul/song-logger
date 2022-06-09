@@ -1,0 +1,4 @@
+.env.dev
+*.xlsx
+.lastsong
+song_logger
