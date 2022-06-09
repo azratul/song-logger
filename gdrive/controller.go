@@ -38,7 +38,8 @@ func (c *Client) Upload(filename, mime string) error {
 		return err
 	}
 	defer file.Close()
-	ext := filepath.Ext(filename)
+	basename := filepath.Base(filename)
+	ext := filepath.Ext(basename)
 	name := filename[:len(filename)-len(ext)]
 	newfilename := fmt.Sprintf("%s-%s%s", name, today, ext)
 
