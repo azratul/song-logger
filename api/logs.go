@@ -79,6 +79,12 @@ func UploadLog() {
 		return
 	}
 
+	err = os.Remove(filename)
+	if err != nil {
+		log.Error(err)
+		return
+	}
+
 	log.Println("OK")
 }
 
