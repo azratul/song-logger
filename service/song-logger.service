@@ -2,6 +2,7 @@
 Description=Small app to record songs from Icecast stream
 [Service]
 Environment="LASTSONG=.lastsong"
+Environment="ICECAST_URL=http://127.0.0.1:3000/status-json.xsl"
 Environment="LOGS_FILENAME=somefile.ext"
 Environment="LOGS_MIMETYPE=text/plain"
 Environment="GDRIVE_CLIENTEMAIL="
