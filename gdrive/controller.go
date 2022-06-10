@@ -40,7 +40,7 @@ func (c *Client) Upload(filename, mime string) error {
 	defer file.Close()
 	basename := filepath.Base(filename)
 	ext := filepath.Ext(basename)
-	name := filename[:len(filename)-len(ext)]
+	name := basename[:len(basename)-len(ext)]
 	newfilename := fmt.Sprintf("%s-%s%s", name, today, ext)
 
 	f := &drive.File{Name: newfilename, Parents: c.Parents}
