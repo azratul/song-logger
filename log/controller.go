@@ -13,7 +13,9 @@ func (log *Log) Save() error {
 	defer f.Close()
 
 	w := csv.NewWriter(f)
-	err = w.Write([]string{log.Year, log.Month, log.Day, log.Hour, log.Artist, log.Song})
+	w.Comma = '|'
+	//err = w.Write([]string{log.Year, log.Month, log.Day, log.Hour, log.Artist, log.Song})
+	err = w.Write([]string{log.Day, log.Month, log.Year, log.Song, log.Artist, log.Artist, log.Hour})
 	if err != nil {
 		return err
 	}
