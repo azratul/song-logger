@@ -1,4 +1,5 @@
 .env.dev
+*.swp
 *.xlsx
 .lastsong
 song-logger
