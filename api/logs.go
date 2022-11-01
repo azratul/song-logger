@@ -24,13 +24,21 @@ func WriteLog() {
 	defer res.Body.Close()
 
 	var radio config.Radio
+	var artist, title string
 
 	if err := json.NewDecoder(res.Body).Decode(&radio); err != nil {
 		log.Error(err)
 		return
 	}
 
-	song := fmt.Sprintf("%s-%s", radio.Icestats.Source.Artist, radio.Icestats.Source.Title)
+	for _, x := range radio.Icestats.Source {
+		if x.Artist != "" && x.Title != "" {
+			artist = x.Artist
+			title = x.Title
+		}
+	}
+
+	song := fmt.Sprintf("%s-%s", artist, title)
 	songBase64 := base64.StdEncoding.EncodeToString([]byte(song))
 	lastsong, _ := ioutil.ReadFile(config.Conf.LastSong)
 
@@ -47,8 +55,8 @@ func WriteLog() {
 
 	l := logs.Log{
 		Filename: config.Conf.Logs.Filename,
-		Artist:   radio.Icestats.Source.Artist,
-		Song:     radio.Icestats.Source.Title,
+		Artist:   artist,
+		Song:     title,
 		Time:     time.Now(),
 		Hour:     time.Now().Format("15:04"),
 		Day:      time.Now().Format("02"),
